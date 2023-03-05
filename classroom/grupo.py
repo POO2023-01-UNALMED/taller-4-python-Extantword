@@ -5,7 +5,7 @@ class Grupo:
 
     grado = 12 
 
-    def __init__(self, estudiantes = None, grupo="grupo predeterminado", asignaturas=None, grado = 12):
+    def __init__(self, grupo="grupo predeterminado", asignaturas=None , estudiantes = None , grado = 12):
 
         if asignaturas is None:
             asignaturas = []
@@ -21,7 +21,11 @@ class Grupo:
         for x in kwargs.values():
             self._asignaturas.append(Asignatura(x))
 
-    def agregarAlumno(self, alumno, lista=[]):
+    def agregarAlumno(self, alumno, lista=None):
+
+        if lista is None:
+            lista = []
+
         lista.append(alumno)
         self.listadoAlumnos = self.listadoAlumnos + lista
 
